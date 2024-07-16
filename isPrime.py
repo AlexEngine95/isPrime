@@ -1,5 +1,3 @@
-import os
-
 prime = False
 end = int(input("Enter the last number you want to be checked if it is prime."))
 a = open("./output.txt", "w")
@@ -14,8 +12,7 @@ for x in range(2,end+1):
         a.write(str(x) + " is prime. \n")
     else:
         a.write(str(x) + " isn't prime. \n")
-    if x % 10000 == 0:
-        print(x)
-    if x % 50000 == 0:
-        os.system("cls")
+    percentage = 100 * float(x/end)
+    if str(percentage) == str(int(percentage)) + ".0":  #Overly complicated way of checking that the percentage of numbers checked is, effectively, an integer. Not perfect.
+        print(str(int(percentage)) + "% complete.")
 a.close()
